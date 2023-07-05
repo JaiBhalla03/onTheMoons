@@ -7,6 +7,7 @@ import {BsGenderMale} from "react-icons/bs";
 import {IoMaleFemaleSharp} from "react-icons/io5";
 import {StaticImageData} from "next/dist/shared/lib/image-external";
 
+
 type profileProps = {
     phone: string;
     name: string;
@@ -52,8 +53,10 @@ const ProfileForm: React.FC<profileProps> = ({
     };
 
     const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const file = event.target.files[0];
-        setUploadedImage(URL.createObjectURL(file));
+        const file = event.target.files?.[0];
+        if(file){
+            setUploadedImage(URL.createObjectURL(file));
+        }
     };
     return (
         <form className={'lg:mx-40 lg:shadow-2xl lg:shadow-black rounded-xl lg:p-8'}>
@@ -169,7 +172,7 @@ const ProfileForm: React.FC<profileProps> = ({
                     </select>
                 </div>
                 <div>
-                    <label className={'text-lg'} htmlFor={'bio'}>Your Bio</label>
+                    <label className={'text-lg resize-none'} htmlFor={'bio'}>Your Bio</label>
                     <textarea value={bi} onChange={(e)=>setBio(e.target.value)} placeholder={'You could write something good, something interesting about yourself here...'} className={'px-1 py-3 h-32 w-full focus:outline-none border border-gray-500 rounded-lg'}></textarea>
                 </div>
             </div>
