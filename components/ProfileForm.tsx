@@ -54,7 +54,7 @@ const ProfileForm: React.FC<profileProps> = ({
     const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
         if(file){
-            setUploadedImage(URL.createObjectURL<string>(file as StaticImageData | null));
+            setUploadedImage(URL.createObjectURL(file as StaticImageData | null));
         }
     };
     return (
