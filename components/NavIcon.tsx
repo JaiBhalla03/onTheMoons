@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconType } from 'react-icons';
-import { IconBaseProps } from 'react-icons/lib';
+
 
 type NavIconProps = {
     heading: string;
@@ -10,7 +10,7 @@ type NavIconProps = {
 };
 
 const NavIcon: React.FC<NavIconProps> = ({ heading, icon: Icon, isActive, onClick }) => {
-    const iconStyle: IconBaseProps = {
+    const iconStyle: React.CSSProperties = {
         fontSize: '1.5rem',
         color: isActive ? '#6e41e2' : undefined,
     };
