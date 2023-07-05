@@ -43,12 +43,12 @@ const ProfileForm: React.FC<profileProps> = ({
     const [coun, setCountry] = useState(country);
     const [lang, setLanguage] = useState(language);
     const [bi, setBio] = useState(bio);
-    const [uploadedImage, setUploadedImage] = useState<StaticImageData | null | boolean>(avatar);
+    const [uploadedImage, setUploadedImage] = useState<StaticImageData | null>(avatar);
     const handleOptionChange = (option:string) => {
         setSelectedOption(option);
     };
     const handleRemoveImage = () => {
-        setUploadedImage(false);
+        setUploadedImage(null);
     };
 
     const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -69,7 +69,7 @@ const ProfileForm: React.FC<profileProps> = ({
                         <div className="bg-gray-200 w-32 h-32 rounded-lg flex items-center justify-center">Upload Image</div>
                     </div>
                 )}
-                {uploadedImage && (
+                {uploadedImage !== null && (
                     <button className={'text-[#6e41e2]'} onClick={handleRemoveImage}>
                         Remove
                     </button>
