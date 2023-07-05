@@ -43,18 +43,18 @@ const ProfileForm: React.FC<profileProps> = ({
     const [coun, setCountry] = useState(country);
     const [lang, setLanguage] = useState(language);
     const [bi, setBio] = useState(bio);
-    const [uploadedImage, setUploadedImage] = useState<StaticImageData | null>(avatar);
+    const [uploadedImage, setUploadedImage] = useState<StaticImageData | null | boolean>(avatar);
     const handleOptionChange = (option:string) => {
         setSelectedOption(option);
     };
     const handleRemoveImage = () => {
-        setUploadedImage(null);
+        setUploadedImage(false);
     };
 
     const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
         if(file){
-            setUploadedImage(URL.createObjectURL(file));
+            setUploadedImage(URL.createObjectURL<string>(file as StaticImageData | null));
         }
     };
     return (
@@ -118,7 +118,7 @@ const ProfileForm: React.FC<profileProps> = ({
                         <div
                             className={`${
                                 selectedOption === 'male' ? 'border-black' : 'border-gray-500'
-                            } focus:border-black flex gap-1 items-center border p-2 rounded-lg`}
+                            } focus:border-black flex gap-1 cursor-pointer items-center border p-2 rounded-lg`}
                             onClick={() => handleOptionChange('male')}
                         >
                             <BsGenderMale size={25} />
@@ -127,7 +127,7 @@ const ProfileForm: React.FC<profileProps> = ({
                         <div
                             className={`${
                                 selectedOption === 'female' ? 'border-black' : 'border-gray-500'
-                            } focus:border-black flex gap-1 items-center border p-2 rounded-lg`}
+                            } focus:border-black flex gap-1 cursor-pointer items-center border p-2 rounded-lg`}
                             onClick={() => handleOptionChange('female')}
                         >
                             <BsGenderMale size={25} />
@@ -136,7 +136,7 @@ const ProfileForm: React.FC<profileProps> = ({
                         <div
                             className={`${
                                 selectedOption === 'other' ? 'border-black' : 'border-gray-500'
-                            } focus:border-black flex gap-1 items-center border p-2 rounded-lg`}
+                            } focus:border-black flex gap-1 cursor-pointer items-center border p-2 rounded-lg`}
                             onClick={() => handleOptionChange('other')}
                         >
                             <IoMaleFemaleSharp size={25} />
