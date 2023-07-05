@@ -7,6 +7,11 @@ import {BsGenderMale} from "react-icons/bs";
 import {IoMaleFemaleSharp} from "react-icons/io5";
 import Select from 'react-select';
 
+type labelFlagProps = {
+    label: string;
+    flag: string;
+}
+
 const ProfileForm = () => {
     const [selectedOption, setSelectedOption] = useState('male');
     const [selectedCountry, setSelectedCountry] = useState(null);
@@ -27,7 +32,7 @@ const ProfileForm = () => {
         // Add more language options here...
     ];
 
-    const customCountryOption = ({ label, flag }) => (
+    const customCountryOption: React.FC<labelFlagProps> = ({ label, flag }) => (
         <div>
             <span role="img" aria-label={label}>
         {flag}
