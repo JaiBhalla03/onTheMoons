@@ -98,8 +98,8 @@ const ProfileForm: React.FC<profileProps> = ({
                     <input value={naam} onChange={(e)=>{setName(e.target.value)}} name={'name'} id={'name'} type={'text'} className={'px-1 py-3 w-full focus:outline-none border border-gray-500 rounded-lg'}/>
                 </div>
                 <div className={'flex gap-2 items-center'}>
-                    <input name={'creator'} id={'creator'} type={'checkbox'} className={'w-4 h-4 focus:outline-none border border-gray-500 rounded-lg'}/>
-                    <label className={'text-lg'} htmlFor={'creator'} checked={creator} onClick={(e)=>setYear(!creator)}>
+                    <input name={'creator'} id={'creator'} type={'checkbox'} className={'w-4 h-4 focus:outline-none border border-gray-500 rounded-lg'} checked={creator} onClick={(e)=>setIsCreator(!creator)}/>
+                    <label className={'text-lg'} htmlFor={'creator'}>
                         Are you a creator?
                     </label>
                 </div>
