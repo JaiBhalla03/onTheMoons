@@ -5,8 +5,7 @@ import avatar from '../public/avatar.jpg'
 import Image from 'next/image'
 import {BsGenderMale} from "react-icons/bs";
 import {IoMaleFemaleSharp} from "react-icons/io5";
-import {StaticImageData} from "next/dist/shared/lib/image-external";
-
+import {StaticImageData} from "next/image";
 
 type profileProps = {
     phone: string;
