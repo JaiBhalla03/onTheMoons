@@ -5,11 +5,11 @@ import avatar from '../public/avatar.jpg'
 import Image from 'next/image'
 import {BsGenderMale} from "react-icons/bs";
 import {IoMaleFemaleSharp} from "react-icons/io5";
-import Select from 'react-select';
+import Select, {GroupBase} from 'react-select';
 
 type labelFlagProps = {
-    label: string;
-    flag: string;
+    label: readonly (string | GroupBase<string>)[];
+    flag: readonly (string | GroupBase<string>)[];
 }
 
 const ProfileForm = () => {
