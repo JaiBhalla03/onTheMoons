@@ -5,8 +5,7 @@ import avatar from '../public/avatar.jpg'
 import Image from 'next/image'
 import {BsGenderMale} from "react-icons/bs";
 import {IoMaleFemaleSharp} from "react-icons/io5";
-import {date} from "zod";
-import {create} from "domain";
+import {StaticImageData} from "next/dist/shared/lib/image-external";
 
 type profileProps = {
     phone: string;
@@ -44,7 +43,7 @@ const ProfileForm: React.FC<profileProps> = ({
     const [coun, setCountry] = useState(country);
     const [lang, setLanguage] = useState(language);
     const [bi, setBio] = useState(bio);
-    const [uploadedImage, setUploadedImage] = useState(avatar);
+    const [uploadedImage, setUploadedImage] = useState<StaticImageData | null>(avatar);
     const handleOptionChange = (option:string) => {
         setSelectedOption(option);
     };
