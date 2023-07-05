@@ -5,41 +5,12 @@ import avatar from '../public/avatar.jpg'
 import Image from 'next/image'
 import {BsGenderMale} from "react-icons/bs";
 import {IoMaleFemaleSharp} from "react-icons/io5";
-import Select, {GroupBase} from 'react-select';
-
-type labelFlagProps = {
-    label: readonly (string | GroupBase<string>)[];
-    flag: readonly (string | GroupBase<string>)[];
-}
 
 const ProfileForm = () => {
     const [selectedOption, setSelectedOption] = useState('male');
-    const [selectedCountry, setSelectedCountry] = useState('');
-    const [selectedLanguage, setSelectedLanguage] = useState('');
     const handleOptionChange = (option:string) => {
         setSelectedOption(option);
     };
-
-    const countryOptions = [
-        { value: 'usa', label: 'United States', flag: '🇺🇸' },
-        { value: 'uk', label: 'United Kingdom', flag: '🇬🇧' },
-        // Add more country options here...
-    ];
-
-    const languageOptions = [
-        { value: 'en', label: 'English' },
-        { value: 'fr', label: 'French' },
-        // Add more language options here...
-    ];
-
-    const customCountryOption: React.FC<labelFlagProps> = ({ label, flag }) => (
-        <div>
-            <span role="img" aria-label={label}>
-        {flag}
-      </span>
-            <span>{label}</span>
-        </div>
-    );
     return (
         <form>
             <div className={'flex flex-col gap-2 items-center'}>
@@ -128,22 +99,19 @@ const ProfileForm = () => {
                 </div>
                 <div>
                     <label className={'text-lg'}>Your Country</label>
-                    <Select
-                        options={countryOptions}
-                        value={selectedCountry}
-                        onChange={setSelectedCountry}
-                        isSearchable
-                        components={{ Option: customCountryOption }}
-                    />
+                    <select className={'px-1 py-3 w-full focus:outline-none border border-gray-500 rounded-lg'}>
+                        <option>India</option>
+                        <option>USA</option>
+                        <option>UK</option>
+                    </select>
                 </div>
                 <div>
                     <label className={'text-lg'}>Preferred Language</label>
-                    <Select
-                        options={languageOptions}
-                        value={selectedLanguage}
-                        onChange={setSelectedLanguage}
-                        isSearchable
-                    />
+                    <select className={'px-1 py-3 w-full focus:outline-none border border-gray-500 rounded-lg'}>
+                        <option>English</option>
+                        <option>Hindi</option>
+                        <option>Spanish</option>
+                    </select>
                 </div>
                 <div>
                     <label className={'text-lg'} htmlFor={'bio'}>Your Bio</label>
