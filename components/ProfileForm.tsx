@@ -51,7 +51,7 @@ const ProfileForm: React.FC<profileProps> = ({
         setUploadedImage(null);
     };
 
-    const handleImageUpload = (event) => {
+    const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files[0];
         setUploadedImage(URL.createObjectURL(file));
     };
