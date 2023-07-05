@@ -7,6 +7,7 @@ import {BsGenderMale} from "react-icons/bs";
 import {IoMaleFemaleSharp} from "react-icons/io5";
 import {StaticImageData} from "next/image";
 
+
 type profileProps = {
     phone: string;
     name: string;
@@ -43,7 +44,7 @@ const ProfileForm: React.FC<profileProps> = ({
     const [coun, setCountry] = useState(country);
     const [lang, setLanguage] = useState(language);
     const [bi, setBio] = useState(bio);
-    const [uploadedImage, setUploadedImage] = useState<StaticImageData | null>(avatar);
+    const [uploadedImage, setUploadedImage] = useState<StaticImageData | null | string>(avatar);
     const handleOptionChange = (option:string) => {
         setSelectedOption(option);
     };
@@ -54,7 +55,7 @@ const ProfileForm: React.FC<profileProps> = ({
     const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
         if(file){
-            setUploadedImage(URL.createObjectURL(file as StaticImageData | null));
+            setUploadedImage(URL.createObjectURL(file));
         }
     };
     return (
