@@ -1,10 +1,12 @@
-import React from 'react';
+'use client';
+
+import React, {useState} from 'react';
 import Image from "next/image";
 import cardImage from '../public/eventCardImage.jpg'
 import panda from '../public/panda.jpg'
 import {
     AiFillClockCircle,
-    AiFillDollarCircle,
+    AiFillDollarCircle, AiFillHeart,
     AiOutlineHeart,
     AiOutlinePlus,
     AiOutlineRight,
@@ -13,6 +15,10 @@ import {
 import {MdAirplaneTicket} from "react-icons/md";
 
 const EventCard = () => {
+    const [isHearted, setIsHearted] = useState(false);
+    const heartIt = ()=>{
+        setIsHearted(!isHearted);
+    }
     return (
         <div className={'bg-[#6e41e2] flex flex-col gap-2 text-white pt-4 rounded-xl'}>
             <div className={'mx-4'}>
@@ -26,8 +32,14 @@ const EventCard = () => {
                     </div>
                     <div className={'flex gap-2 items-center'}>
                         <button className={'border border-white rounded-xl bg-white bg-opacity-30 p-1 flex items-center'}><AiOutlinePlus size={15} className={''}/>Add</button>
-                        <AiOutlineHeart/>
-                        <AiOutlineShareAlt/>
+                        <div className={'cursor-pointer'} onClick={heartIt}>
+                            {
+                                !isHearted ? (<AiOutlineHeart/>): (<AiFillHeart/>)
+                            }
+                        </div>
+                        <div className={'cursor-pointer'}>
+                            <AiOutlineShareAlt/>
+                        </div>
                     </div>
                 </div>
                 <div className={'flex gap-2 list-none border-b border-white pb-2'}>
@@ -66,7 +78,7 @@ const EventCard = () => {
                         Junto Community
                     </p>
                 </div>
-                <div className={''}>
+                <div className={'cursor-pointer'}>
                     <div className={'flex items-center gap-1 rounded-lg bg-opacity-100 py-2 px-1 bg-[#6e41e2]'}>Event Details <AiOutlineRight/></div>
                 </div>
             </div>

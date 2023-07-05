@@ -8,7 +8,7 @@ export default function Home() {
     <main className="">
       <HomeNav/>
       <HeroPage/>
-        <div className={'px-4 flex flex-col gap-6 pt-4 pb-28'}>
+        <div className="lg:px-40 px-4 grid gap-6 pt-4 pb-28 md:grid-cols-2 lg:grid-cols-3">
             <EventCard/>
             <EventCard/>
             <EventCard/>

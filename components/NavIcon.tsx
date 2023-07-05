@@ -1,21 +1,26 @@
 import React from 'react';
-import {AiOutlineHome} from "react-icons/ai";
-import {IconType} from "react-icons";
+import { IconType } from 'react-icons';
+import { IconBaseProps } from 'react-icons/lib';
 
-type navIconProps = {
+type NavIconProps = {
     heading: string;
-    icon: IconType
-}
+    icon: IconType;
+    isActive: boolean;
+    onClick: () => void;
+};
 
+const NavIcon: React.FC<NavIconProps> = ({ heading, icon: Icon, isActive, onClick }) => {
+    const iconStyle: IconBaseProps = {
+        fontSize: '1.5rem',
+        color: isActive ? '#6e41e2' : undefined,
+    };
 
-const NavIcon: React.FC<navIconProps> = ({heading, icon}) => {
-    const iconStyle = {
-        fontSize: '1.5rem'
-    }
     return (
-        <div className={'flex flex-col items-center justify-center'}>
-            {React.createElement(icon, {style: iconStyle})}
-            <div className={'text-lg'}>{heading}</div>
+        <div className="flex flex-col items-center justify-center" onClick={onClick}>
+            <Icon style={iconStyle} />
+            <div className="text-lg" style={{ color: isActive ? '#6e41e2' : undefined }}>
+                {heading}
+            </div>
         </div>
     );
 };

@@ -5,3 +5,13 @@
 *{
     -webkit-tap-highlight-color: transparent;
 }
+
+
+/* Add this CSS to your stylesheets */
+.nav-icon {
+    color: #6e41e2;
+}
+
+.nav-icon.active {
+    color: #6e41e2;
+}
