@@ -48,7 +48,7 @@ const ProfileForm: React.FC<profileProps> = ({
         setSelectedOption(option);
     };
     const handleRemoveImage = () => {
-        setUploadedImage(false);
+        setUploadedImage(null);
     };
 
     const handleImageUpload = (event) => {
