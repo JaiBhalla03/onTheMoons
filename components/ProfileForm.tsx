@@ -11,7 +11,7 @@ const ProfileForm = () => {
     const [selectedOption, setSelectedOption] = useState('male');
     const [selectedCountry, setSelectedCountry] = useState(null);
     const [selectedLanguage, setSelectedLanguage] = useState(null);
-    const handleOptionChange = (option) => {
+    const handleOptionChange = (option:string) => {
         setSelectedOption(option);
     };
 
